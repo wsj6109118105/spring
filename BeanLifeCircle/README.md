@@ -133,3 +133,24 @@ Dog die
 可见对除了本身和 lifeCircleConfig 之外的 Bean 全部生效了
 
 总结：**BeanPostProcessor 本身也是一个 Bean 而且这个接口是对全体 Bean 生效的，在使用时应当独立实现，而不应该在已有的 Bean 上实现，否则对实现的Bean本身是不起作用的**
+
+> 补充
+
+**由于BeanPostProcessor原因，最开始各个方法的执行顺序是有误的，因为在Bean本身实现了BeanPostProcessor**
+
+去掉后测试
+```bash
+setBeanName被调用了---->BeanNameAware接口方法
+
+setBeanFactory被调用了---->BeanFactoryAware接口方法
+
+setApplicationContext被调用了---->ApplicationContextAware接口方法
+
+beanLifeCircle初始化调用之前---->BeanPostProcessor接口方法
+
+afterPropertiesSet被调用了---->InitializingBean接口方法
+
+beanLifeCircle初始化调用之后---->BeanPostProcessor接口方法
+
+destroy被调用了---->DisposableBean接口方法
+```

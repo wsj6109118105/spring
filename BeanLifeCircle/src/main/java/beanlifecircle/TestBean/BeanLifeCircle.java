@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * DATE:2021/9/30
  **/
 @Component
-public class BeanLifeCircle implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, BeanPostProcessor,
+public class BeanLifeCircle implements BeanNameAware, BeanFactoryAware, ApplicationContextAware,
         InitializingBean, DisposableBean {
 
 
@@ -35,20 +35,8 @@ public class BeanLifeCircle implements BeanNameAware, BeanFactoryAware, Applicat
     }
 
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessBeforeInitialization被调用了");
-        return null;
-    }
-
-    @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("afterPropertiesSet被调用了");
-    }
-
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessAfterInitialization被调用了");
-        return null;
     }
 
     @Override

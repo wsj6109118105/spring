@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
  * DATE:2021/9/30
  **/
 @Configuration
-//@ComponentScan(basePackages = {"beanlifecircle.TestBean"})
+@ComponentScan(basePackages = {"beanlifecircle.TestBean"})
 public class LifeCircleConfig {
 
-    @Bean(initMethod = "init",destroyMethod = "destory")
+    /*@Bean(initMethod = "init",destroyMethod = "destory")
     public People people(){
         return new People();
     }
@@ -29,7 +29,7 @@ public class LifeCircleConfig {
     @Bean
     public Dog dog(){
         return new Dog();
-    }
+    }*/
 
     @Bean
     public MyBeanProcessor processor(){
